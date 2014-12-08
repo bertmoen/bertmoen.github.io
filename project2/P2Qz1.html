@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    var rel = getRelationship(12, 12);
+    console.log(rel);
+
+    function getRelationship(num1, num2) {
+      //declaring the function variables 
+      //getting typof each variable to make sure it's a number
+      var a = typeof num1;
+      var b = typeof num2;
+      var msg = "";
+
+      //checking for both typeof and isNaN and return error msg if applicable 
+      //if both variables are numbers return the operator
+      if ((isNaN(num1) || (a != "number")) && (isNaN(num2) || (b != "number"))) {
+          msg = "Can\'t compare relationships because " + num1 + " and " + num2 + " are not numbers";
+      } else if ((isNaN(num1)) || (a != "number")) {
+          msg = "Can\'t compare relationships because " + num1 + " is not a number";
+      } else if ((isNaN(num2)) || (b != "number")) {
+          msg = "Can\'t compare relationships because " + num2 + " is not a number";
+      } else if (num1 == num2) {
+          msg = "=";
+      } else if (num1 < num2) {
+          msg = "<";
+      } else {
+          msg = ">";
+      }
+      return msg;
+    }
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

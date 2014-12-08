@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John W Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+
+// Write your code here
+
+function alphabetizer(names) {
+  var newArray = [];
+  //the for loop will iterate through each name in the array of names/moonwalkers
+  //invoke the function to fix the name and put it in the new array
+  for (var i = 0; i < names.length; i++) {
+    var fixedName = fixName(names[i]);
+    newArray.push(fixedName);
+  }
+  //finally sort the new array of names and return it
+  newArray.sort();
+  return newArray;
+}
+
+function fixName(name) {
+  var fullName;
+  var firstName;
+  var lastName;
+  //since not all names have a middle name set middle name equal to a 
+  //blank string so there won't be any problem adding it to the newName variable
+  var mName = "";
+  var newName;
+
+  //for each name in the array split it using spaces
+  //and use the index to get the first and last name
+  fullName = name.split(" ");
+  firstName = fullName[0];
+  lastName = fullName[fullName.length - 1];
+  //look specifically for middle names and assign it if applicable
+  if (fullName.length > 2) {
+      mName = " " + fullName[fullName.length - 2];
+  }
+  //concatonate the last, first and middle names and add them to the new array
+  newName = lastName + ", " + firstName + mName;
+  return newName;
+}
+    
+    // Your code must have alphabetizer(names) or it will not run!
+
+// Uncomment the line below to test your code!
+console.log(alphabetizer(moonWalkers));
+</script>
+
+</head>
+
+<body>
+</body>
+
+</html>
